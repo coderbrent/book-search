@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Card from '@material-ui/core/Card'
 import CardActionArea from '@material-ui/core/CardActionArea'
@@ -7,48 +7,51 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import { flexbox } from '@material-ui/system';
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    maxWidth: 225,
+    margin: 25,
   },
   media: {
-    height: 140,
+    height: 175,
   }
 });
 
-const ResultCard = ({ data }) => {
+const ResultCard = (props) => {
   const classes = useStyles();
 
   return (
     <>
-      { data.map(book => (
-        <Card className={classes.card}>
-        <CardActionArea>
-          <CardMedia 
-            className={classes.media}
-            image={book.image} />
-          <CardContent>
-            <Typography 
-              variant="h5" 
-              component="h2">
-                {book.title}
-            </Typography>
-            <Typography 
-              variant="body2" 
-              component="p" 
-              color="textSecondary">
-                {book.authors}
-            </Typography>
-            <Typography 
-              variant="body1" 
-              component="p" 
-              color="textPrimary">
-                {book.desc}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
+    <Grid item>
+      <Card className={classes.card}>
+      <CardActionArea>
+        <CardMedia 
+          className={classes.media}
+          image={props.image} />
+        <CardContent>
+          <Typography 
+            variant="h5" 
+            component="h2">
+            {props.title}
+          </Typography>
+          <Typography 
+            variant="body2" 
+            component="p" 
+            color="textSecondary">
+            {props.author}
+          </Typography>
+          <Typography 
+            variant="body1" 
+            component="p" 
+            color="textPrimary">
+            {props.desc}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
         <Button 
           size="small" 
           color="primary" 
@@ -59,11 +62,11 @@ const ResultCard = ({ data }) => {
           size="small" 
           color="secondary" 
           variant="contained">
-            View Book
+            View Details
         </Button>
-        </CardActions>
-      </Card>
-    ))}
+      </CardActions>
+    </Card>
+    </Grid>
   </>
   )
 };

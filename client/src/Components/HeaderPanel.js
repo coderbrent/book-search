@@ -6,19 +6,22 @@ class HeaderPanel extends React.Component {
   render() {
     return(
       <>
-      <Container maxWidth="xl">
-        <Grid alignItems="center">
+      <Container maxWidth="md">
+        <Grid container alignItems="center">
         <Paper style={{ 
           backgroundColor: "slategrey", 
-          width: "auto", 
-          height: 115 }}>
+          width: "100%", 
+          height: "100%" 
+        }}>
           <Typography 
             align="center" 
-            variant="h1" 
-            style={{ 
+            variant="h1"
+            style={{
               color: 'white', 
-              fontWeight: "bolder" }}>
-              Google BooKZz
+              fontWeight: "bolder",
+              padding: 25
+            }}>
+              Book Search
           </Typography>
         </Paper>
         </Grid>

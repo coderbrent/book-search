@@ -1,21 +1,23 @@
 import React from 'react'
-import { Typography, Paper, Box } from '@material-ui/core'
+import { Typography } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
-import Books from '../Components/ResultCard'
 
 class ResultsPanel extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      visible: false
+    }
+  }
+
   render() {
     return(
       <>
-      <Grid alignItems="center" style={{ margin: 10, width: 'auto'}}>
-        <Paper style={{ backgroundColor: "white" }}>
-          <Typography align="left" variant="h6" style={{ color: 'darkblue', fontWeight: "bold", margin: 5 }}>
-            Search Results:
-          </Typography>
-          <Box padding={2}>
-            <Books data={this.state.books} />
-          </Box>
-        </Paper>
+      <Grid container alignItems="center" style={{ marginTop: 10 }}>
+        <Typography align="left" variant="h6" style={{ color: 'darkblue', fontWeight: "bold", margin: 5 }}>
+          Search Results:
+        </Typography>
+
       </Grid>
       </>
     )  
