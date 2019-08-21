@@ -2,7 +2,6 @@ import React from 'react'
 import { Typography, Container, Paper, TextField, Box } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-import ResultsPanel from '../Components/ResultsPanel'
 import ResultCard from '../Components/ResultCard'
 
 class BookSearchPanel extends React.Component {
@@ -11,8 +10,7 @@ class BookSearchPanel extends React.Component {
     this.getBooks = this.getBooks.bind(this);
     this.state = {
       searchQuery: null,
-      searchResults: null,
-      books: { id: 1, title: 'hookie', author: 'JK Rowling' }
+      searchResults: [],
     }
   }
 
@@ -46,7 +44,7 @@ class BookSearchPanel extends React.Component {
               id="searchQuery"
               label="Book Title"
               style={{ marginBottom: 10 }}
-              placeholder="I dunno... Harry Fucking Potter?"
+              placeholder="Harry Potter"
               fullWidth={true}
               name="searchQuery"
               margin="normal"
@@ -65,16 +63,16 @@ class BookSearchPanel extends React.Component {
             </Button>
           </Box>
         </Paper>
-        { this.state.searchResults ? <ResultsPanel>
-        { this.state.searchResults.map((Book, index) => 
+        <Grid container direction="row" alignItems="center">
+         { this.state.searchResults.map((Book, index) => 
           ( <ResultCard 
               key={Book.id}
               image={Book.volumeInfo.imageLinks.smallThumbnail}
               title={Book.volumeInfo.title}
               author={Book.volumeInfo.authors} />)
           )}
-        </ResultsPanel> : null }
-    </Grid>
+        </Grid>
+        </Grid>
     </Container>
   </>
     )  
