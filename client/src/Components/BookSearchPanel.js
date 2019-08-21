@@ -11,6 +11,7 @@ class BookSearchPanel extends React.Component {
     this.state = {
       searchQuery: null,
       searchResults: [],
+      progressPercentage: 0
     }
   }
 
@@ -33,7 +34,7 @@ class BookSearchPanel extends React.Component {
   render() {
     return(
       <>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
       <Grid>
         <Paper style={{ backgroundColor: "white", width: "auto", height: 'auto' }}>
           <Typography align="left" variant="h5" style={{ color: '#444', fontWeight: "bold", padding: 5 }}>

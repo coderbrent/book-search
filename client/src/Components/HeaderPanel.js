@@ -6,7 +6,7 @@ class HeaderPanel extends React.Component {
   render() {
     return(
       <>
-      <Container maxWidth="md">
+      <Container maxWidth="lg">
         <Grid container alignItems="center">
         <Paper style={{ 
           backgroundColor: "slategrey", 
